@@ -28,13 +28,18 @@ jobs:
 
       - name: Lint frontend (opcional)
         run: |
-          if exist .\node_modules\eslint (npx eslint src || echo "No lint script found")
-        shell: pwsh
-
+          if [ -d node_modules/eslint ] || [ -f node_modules/.bin/eslint ]; then
+            npx eslint src || echo "No lint script found"
+          else
+            echo "No eslint installed"
+          fi
       - name: Build frontend (opcional)
         run: |
-          if exist .\node_modules\react-scripts (npm run build || echo "No build script found")
-        shell: pwsh
+          if [ -d node_modules/react-scripts ] || [ -f node_modules/.bin/react-scripts ]; then
+            npm run build || echo "No build script found"
+          else
+            echo "No react-scripts installed"
+          fi
 
       # Puedes agregar aquí pasos para ejecutar pruebas si tienes scripts de test
       # - name: Run frontend tests
