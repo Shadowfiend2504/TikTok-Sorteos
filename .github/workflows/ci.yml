@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Install frontend dependencies
+        run: npm install
+
+      - name: Install backend dependencies
+        run: |
+          cd backend
+          npm install
+
+      - name: Lint frontend (opcional)
+        run: |
+          if exist .\node_modules\eslint (npx eslint src || echo "No lint script found")
+        shell: pwsh
+
+      - name: Build frontend (opcional)
+        run: |
+          if exist .\node_modules\react-scripts (npm run build || echo "No build script found")
+        shell: pwsh
+
+      # Puedes agregar aquí pasos para ejecutar pruebas si tienes scripts de test
+      # - name: Run frontend tests
+      #   run: npm test -- --watchAll=false
+      #
+      # - name: Run backend tests
+      #   run: |
+      #     cd backend
+      #     npm test -- --watchAll=false
