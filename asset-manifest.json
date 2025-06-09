@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.0cf008b3.css",
-    "main.js": "/static/js/main.b4210cf5.js",
-    "index.html": "/index.html",
-    "main.0cf008b3.css.map": "/static/css/main.0cf008b3.css.map",
-    "main.b4210cf5.js.map": "/static/js/main.b4210cf5.js.map"
+    "main.css": "/TikTok-Sorteos/static/css/main.0cf008b3.css",
+    "main.js": "/TikTok-Sorteos/static/js/main.b4210cf5.js",
+    "index.html": "/TikTok-Sorteos/index.html",
+    "main.0cf008b3.css.map": "/TikTok-Sorteos/static/css/main.0cf008b3.css.map",
+    "main.b4210cf5.js.map": "/TikTok-Sorteos/static/js/main.b4210cf5.js.map"
   },
   "entrypoints": [
     "static/css/main.0cf008b3.css",
